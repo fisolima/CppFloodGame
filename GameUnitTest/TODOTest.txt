@@ -1,0 +1,8 @@
+x Apply value to cell
+x Apply same value to cell no count
+x Apply value to chain cells
+x Count cells modified on assign
+x Apply value on mixed cell's value in chain
+x Check neighbour
+- Apply value to cycling cells
+- Apply value to U cells
