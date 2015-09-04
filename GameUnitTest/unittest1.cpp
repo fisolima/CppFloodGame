@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
 #include "SimpleCell.h"
+#include "IntegerCell.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -91,6 +92,17 @@ namespace GameUnitTest
 			Assert::AreEqual((void*)&cells[0], (void*)cells[3].TopCell());
 			Assert::AreEqual((void*)&cells[0], (void*)cells[4].BottomCell() );
 			Assert::AreNotEqual((void*)&cells[4], (void*)cells[3].BottomCell());
+		}
+
+		TEST_METHOD(IntegerCell_base_setValue_call)
+		{
+			IntegerCell cell(0);
+
+			cell.setValue(10);
+
+			Assert::AreEqual(10, cell.getValue());
+			
+			Assert::AreEqual("setValue", cell.log.c_str());
 		}
 	};
 }

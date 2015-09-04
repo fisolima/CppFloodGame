@@ -47,7 +47,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -77,10 +77,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicCell.h" />
+    <ClInclude Include="IntegerCell.h" />
     <ClInclude Include="SimpleCell.h" />
     <ClInclude Include="TestClass.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="IntegerCell.cpp" />
     <ClCompile Include="TestClass.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

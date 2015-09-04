@@ -12,11 +12,11 @@ using namespace Pippo;
 //{
 //}
 
-template <typename T>
-void SimpleCell<T>::setValue(T _t)
-{
-	this->t = _t;
-}
+//template <typename T>
+//void SimpleCell<T>::setValue(T _t)
+//{
+//	this->t = _t;
+//}
 
 template<typename T>
 T SimpleCell<T>::getValue()
