@@ -9,5 +9,6 @@ x Apply value to cycling cells
 x Apply value to U cells
 
 BOARD
-- create a matrix of cells
-- cast cell to right type
+x create a matrix of cells
+x cast cell to right type
+- check matrix cell neighbour

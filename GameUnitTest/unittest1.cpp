@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include <exception>
 #include "CppUnitTest.h"
 #include "SimpleCell.h"
 #include "IntegerCell.h"
@@ -138,11 +139,13 @@ namespace GameUnitTest
 
 		TEST_METHOD(Create_a_cellmatrix)
 		{
-			CellMatrix matrix(SimpleCellMatrixBuilder<int>(3, 3, 0));
+			CellMatrix<SimpleCell<int>> matrix(SimpleCellMatrixBuilder<int>(3, 3, 0));
 
-			Assert::IsNotNull(matrix.Cell<SimpleCell<int>>(0, 0));
-			Assert::IsNotNull(matrix.Cell<SimpleCell<int>>(2, 2));
-			Assert::IsNull(matrix.Cell<SimpleCell<int>>(2, 3));
+			Assert::IsNotNull(matrix.Cell(0, 0));
+			Assert::IsNotNull(matrix.Cell(2, 2));
+
+			Assert::ExpectException<std::exception>([&] { return matrix.Cell(-1, -1); });
+			Assert::ExpectException<std::exception>([&] { return matrix.Cell(2, 3); } );
 		}
 	};
 }
