@@ -94,15 +94,44 @@ namespace GameUnitTest
 			Assert::AreNotEqual((void*)&cells[4], (void*)cells[3].BottomCell());
 		}
 
-		TEST_METHOD(IntegerCell_base_setValue_call)
+		TEST_METHOD(Cycling_cell_assign_value)
 		{
-			IntegerCell cell(0);
+			Pippo::SimpleCell<int> cells[8] {0, 0, 0, 0, 0, 0, 0, 0};
 
-			cell.setValue(10);
+			cells[0].setRightCell(&cells[1]);
+			cells[1].setRightCell(&cells[2]);
+			cells[2].setBottomCell(&cells[3]);
+			cells[3].setBottomCell(&cells[4]);
+			cells[4].setLeftCell(&cells[5]);
+			cells[5].setLeftCell(&cells[6]);
+			cells[6].setTopCell(&cells[7]);
+			cells[7].setTopCell(&cells[0]);
 
-			Assert::AreEqual(10, cell.getValue());
-			
-			Assert::AreEqual("setValue", cell.log.c_str());
+			int count = cells[0].setValue(10);
+
+			Assert::AreEqual(8, count);
+			Assert::AreEqual(10, cells[0].getValue());
+			Assert::AreEqual(10, cells[7].getValue());
+		}
+
+		TEST_METHOD(Uform_cell_assign_value)
+		{
+			Pippo::SimpleCell<int> cells[8] {0, 0, 0, 0, 0, 0, 0, 0};
+
+			//cells[0].setRightCell(&cells[1]);
+			//cells[1].setRightCell(&cells[2]);
+			cells[2].setBottomCell(&cells[3]);
+			cells[3].setBottomCell(&cells[4]);
+			cells[4].setLeftCell(&cells[5]);
+			cells[5].setLeftCell(&cells[6]);
+			cells[6].setTopCell(&cells[7]);
+			cells[7].setTopCell(&cells[0]);
+
+			int count = cells[0].setValue(10);
+
+			Assert::AreEqual(7, count);
+			Assert::AreEqual(10, cells[0].getValue());
+			Assert::AreEqual(10, cells[2].getValue());
 		}
 	};
 }

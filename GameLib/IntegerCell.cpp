@@ -14,9 +14,5 @@ IntegerCell::~IntegerCell()
 
 int IntegerCell::setValue(int _value)
 {
-	SimpleCell<int>::setValue(_value);
-
-	log = "setValue";
-
-	return 0;
+	return SimpleCell<int>::setValue(_value);
 }
