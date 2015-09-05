@@ -2,8 +2,15 @@
 
 namespace Pippo
 {
+	class ICell
+	{
+	public:
+		ICell() {}
+		~ICell() {}
+	};
+
 	template <typename T>
-	class BasicCell
+	class BasicCell : public ICell
 	{
 	protected:
 		T t;
@@ -23,13 +30,16 @@ namespace Pippo
 		}
 
 	public:
-		BasicCell(T _t)
+		BasicCell()
 		{
-			this->t = _t;
 			this->rightCell = nullptr;
 			this->bottomCell = nullptr;
 			this->leftCell = nullptr;
 			this->topCell = nullptr;
+		}
+		BasicCell(T _t) : BasicCell()
+		{
+			this->t = _t;
 		}
 		~BasicCell()
 		{

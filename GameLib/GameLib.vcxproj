@@ -77,8 +77,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicCell.h" />
+    <ClInclude Include="BasicCellMatrixBuilder.h" />
+    <ClInclude Include="CellMatrix.h" />
+    <ClInclude Include="ICellMatrixBuilder.h" />
     <ClInclude Include="IntegerCell.h" />
     <ClInclude Include="SimpleCell.h" />
+    <ClInclude Include="SimpleCellMatrixBuilder.h" />
     <ClInclude Include="TestClass.h" />
   </ItemGroup>
   <ItemGroup>

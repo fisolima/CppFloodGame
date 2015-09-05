@@ -2,6 +2,8 @@
 #include "CppUnitTest.h"
 #include "SimpleCell.h"
 #include "IntegerCell.h"
+#include "CellMatrix.h"
+#include "SimpleCellMatrixBuilder.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -132,6 +134,15 @@ namespace GameUnitTest
 			Assert::AreEqual(7, count);
 			Assert::AreEqual(10, cells[0].getValue());
 			Assert::AreEqual(10, cells[2].getValue());
+		}
+
+		TEST_METHOD(Create_a_cellmatrix)
+		{
+			CellMatrix matrix(SimpleCellMatrixBuilder<int>(3, 3, 0));
+
+			Assert::IsNotNull(matrix.Cell<SimpleCell<int>>(0, 0));
+			Assert::IsNotNull(matrix.Cell<SimpleCell<int>>(2, 2));
+			Assert::IsNull(matrix.Cell<SimpleCell<int>>(2, 3));
 		}
 	};
 }

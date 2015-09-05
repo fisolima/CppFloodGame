@@ -30,6 +30,18 @@
     <ClInclude Include="IntegerCell.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ICellMatrixBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CellMatrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleCellMatrixBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicCellMatrixBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TestClass.cpp">

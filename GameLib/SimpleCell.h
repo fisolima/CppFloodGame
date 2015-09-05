@@ -8,6 +8,8 @@ namespace Pippo
 	class SimpleCell : public BasicCell<T>
 	{
 	public:
+		SimpleCell() : BasicCell()
+		{}
 		SimpleCell(T _t) : BasicCell(_t)
 		{}
 		virtual ~SimpleCell()
