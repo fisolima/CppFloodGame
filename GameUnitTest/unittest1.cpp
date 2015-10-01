@@ -147,5 +147,12 @@ namespace GameUnitTest
 			Assert::ExpectException<std::exception>([&] { return matrix.Cell(-1, -1); });
 			Assert::ExpectException<std::exception>([&] { return matrix.Cell(2, 3); } );
 		}
+
+		TEST_METHOD(Check_cell_matrix_neighbour)
+		{
+			CellMatrix<SimpleCell<int>> matrix(SimpleCellMatrixBuilder<int>(3, 3, 0));
+
+			Assert::AreEqual((void*)matrix.Cell(0,0), (void*)matrix.Cell(1,0)->LeftCell());
+		}
 	};
 }
